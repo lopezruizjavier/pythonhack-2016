@@ -11,7 +11,7 @@ Miembros del equipo _dataACK_:
 
 * Carlos Cilleruelo Rodríguez ([@CarlosLannister](https://github.com/CarlosLannister))
 * Javier López Ruiz ([@lopezruizjavier](https://github.com/lopezruizjavier))
-* Irene Sánchez López ([@sanlopez](https://github.com/sanlopez))
+* Irene Sánchez López ([@sanlopez](https://github.com/IreneSL))
 
 Resultados:
 
