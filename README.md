@@ -18,4 +18,4 @@ Resultados:
 * [Cuadro de mando dinámico creado con Pentaho BI](http://146.185.130.35:8080/pentaho/api/repos/%3Ahome%3ApythonHack%3ARetoCardAnalytics.wcdf/generatedContent?userid=pythonHack&password=dataACK16*). Más información sobre su creación en su [página Wiki](https://github.com/lopezruizjavier/pythonhack-2016/wiki/Pentaho).
 * [Diferentes visualizaciones analíticas con Carto](https://javierlopezruiz.carto.com/viz/57e13580-8b43-11e6-8cef-0ecd1babdde5/public_map). Más información sobre su generación en su [página Wiki](https://github.com/lopezruizjavier/pythonhack-2016/wiki/Carto).
 
-<img src="https://s15.postimg.org/4ozqoumjv/full_viz.png" width="100"/>
+<img src="https://s15.postimg.org/4ozqoumjv/full_viz.png" width="1000"/>
