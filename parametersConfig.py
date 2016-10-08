@@ -6,4 +6,4 @@ host = 'localhost'
 bbdd = 'pythonHack'
 tablaBBDD = 'cardAnalytics'
 usuario = 'postgres'
-password = ''
+password = '' # Establece la password

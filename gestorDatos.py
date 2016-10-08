@@ -7,6 +7,7 @@ import subprocess
 
 host = parametersConfig.host
 usuario = parametersConfig.usuario
+password = parametersConfig.password
 nombreBBDD = parametersConfig.bbdd
 tablaBBDD = parametersConfig.tablaBBDD
 
@@ -20,11 +21,9 @@ def lectorDatos(fichero, delimitador, tipos):
 	return datos
 
 def insertaPostgreSQL(datos):
-	# Creación de la BBDD
-	subprocess.call(["createdb", nombreBBDD])
-	
+	# Se supone creada la BBDD de nombre 'nombreBBDD'
 	# Se define la cadena de conexión
-	conn_string = "host=" + host + " dbname=" + nombreBBDD + " user=" + usuario
+	conn_string = "host=" + host + " dbname=" + nombreBBDD + " user=" + usuario + " password=" + password
 	print("Conectado a PostgreSQL\n	->%s" % (conn_string))
 	conn = psycopg2.connect(conn_string)
 	cursor = conn.cursor()

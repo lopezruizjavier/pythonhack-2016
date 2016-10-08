@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="Querie_Analisis_Consumidores" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Analisis_Comercios" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Analisis_Sectores" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Analisis_Temporal" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Distribucion_Gasto" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Comparacion1" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Comparacion2" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Obtiene_CP_Clientes" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Obtiene_CP_Comercios1" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+      <Connection id="Querie_Obtiene_CP_Comercios2" type="sql.jndi">
+         <Jndi>PostgreSQL</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="Querie_Analisis_Consumidores"
+               id="Querie_Analisis_Consumidores"
+               type="sql">
+      <Name>Querie_Analisis_Consumidores</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT cp_cliente, round(sum(importe),2) as Gasto 
+FROM cardanalytics 
+GROUP BY cp_cliente 
+ORDER BY Gasto DESC;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Analisis_Comercios"
+               id="Querie_Analisis_Comercios"
+               type="sql">
+      <Name>Querie_Analisis_Comercios</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT cp_comercio, round(sum(importe),2) as Ingreso 
+FROM cardanalytics 
+GROUP BY cp_comercio 
+ORDER BY Ingreso DESC;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Analisis_Sectores"
+               id="Querie_Analisis_Sectores"
+               type="sql">
+      <Name>Querie_Analisis_Sectores</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT sector, round(sum(importe),2) as Ingreso 
+FROM cardanalytics 
+GROUP BY sector 
+ORDER BY Ingreso DESC;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Analisis_Temporal"
+               id="Querie_Analisis_Temporal"
+               type="sql">
+      <Name>Querie_Analisis_Temporal</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT dia, round(median(importe),2) as Gasto
+FROM cardanalytics 
+GROUP BY dia 
+ORDER BY dia ASC;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Distribucion_Gasto"
+               id="Querie_Distribucion_Gasto"
+               type="sql">
+      <Name>Querie_Distribucion_Gasto</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT sector, franja_horaria, round(sum(importe),2) as Gasto
+FROM cardanalytics  
+GROUP BY sector, franja_horaria
+ORDER BY franja_horaria;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Comparacion1" id="Querie_Comparacion1"
+               type="sql">
+      <Name>Querie_Comparacion1</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="cpCliente1Comparacion" name="cpCliente1Comparacion" type="Integer"/>
+         <Parameter default="cpComercio1Comparacion" name="cpComercio1Comparacion" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT sector, round(median(importe),2) as Gasto 
+FROM cardanalytics 
+WHERE cp_cliente = ${cpCliente1Comparacion} AND cp_comercio = ${cpComercio1Comparacion} 
+GROUP BY sector;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Comparacion2" id="Querie_Comparacion2"
+               type="sql">
+      <Name>Querie_Comparacion2</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="cpCliente2Comparacion" name="cpCliente2Comparacion" type="Integer"/>
+         <Parameter default="cpComercio2Comparacion" name="cpComercio2Comparacion" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT sector, round(median(importe),2) as Gasto 
+FROM cardanalytics 
+WHERE cp_cliente = ${cpCliente2Comparacion} AND cp_comercio = ${cpComercio2Comparacion} 
+GROUP BY sector;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Obtiene_CP_Clientes"
+               id="Querie_Obtiene_CP_Clientes"
+               type="sql">
+      <Name>Querie_Obtiene_CP_Clientes</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT distinct(cp_cliente) FROM cardanalytics ORDER BY cp_cliente;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Obtiene_CP_Comercios1"
+               id="Querie_Obtiene_CP_Comercios1"
+               type="sql">
+      <Name>Querie_Obtiene_CP_Comercios1</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="cpCliente1Comparacion" name="cpCliente1Comparacion" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT distinct(cp_comercio) FROM cardanalytics WHERE cp_cliente=${cpCliente1Comparacion} ORDER BY cp_comercio;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="Querie_Obtiene_CP_Comercios2"
+               id="Querie_Obtiene_CP_Comercios2"
+               type="sql">
+      <Name>Querie_Obtiene_CP_Comercios2</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="cpCliente2Comparacion" name="cpCliente2Comparacion" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT distinct(cp_comercio) FROM cardanalytics WHERE cp_cliente=${cpCliente2Comparacion} ORDER BY cp_comercio;]]></Query>
+   </DataAccess>
+</CDADescriptor>
