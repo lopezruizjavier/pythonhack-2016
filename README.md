@@ -19,3 +19,8 @@ Resultados:
 * [Diferentes visualizaciones analíticas con Carto](https://javierlopezruiz.carto.com/viz/57e13580-8b43-11e6-8cef-0ecd1babdde5/public_map). Más información sobre su generación en su [página Wiki](https://github.com/lopezruizjavier/pythonhack-2016/wiki/Carto).
 
 [![full_viz.png](https://s13.postimg.org/40mzr0x9z/full_viz.png)](https://postimg.org/image/mg7gofbeb/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flopezruizjavier%2Fpythonhack-2016.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Flopezruizjavier%2Fpythonhack-2016?ref=badge_shield)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flopezruizjavier%2Fpythonhack-2016.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Flopezruizjavier%2Fpythonhack-2016?ref=badge_large)
